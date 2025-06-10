@@ -1,7 +1,7 @@
-import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs';
-import {HttpClient} from '@angular/common/http';
-import {ITree} from '../../shared/models/tree.model';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { ITree } from '../../shared/models/tree.model';
 
 @Injectable({ providedIn: 'root' })
 export class TreeService {

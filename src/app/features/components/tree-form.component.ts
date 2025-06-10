@@ -1,9 +1,9 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
-import { TreeStore} from '../store/tree.store';
+import { TreeStore } from '../store/tree.store';
 import { CommonModule } from '@angular/common';
-import {ITree} from '../../shared/models/tree.model';
-import {Router, RouterLink} from '@angular/router';
+import { ITree } from '../../shared/models/tree.model';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-tree-form',
@@ -14,10 +14,20 @@ import {Router, RouterLink} from '@angular/router';
     <div class="flex">
       <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form">
         <div>
-          <input type="text" class="border p-2 w-full" formControlName="name" placeholder="Tree name"/>
+          <input
+            type="text"
+            class="border p-2 w-full"
+            formControlName="name"
+            placeholder="Tree name"
+          />
         </div>
         <div>
-          <input type="text" class="border p-2 w-full" formControlName="description" placeholder="Description"/>
+          <input
+            type="text"
+            class="border p-2 w-full"
+            formControlName="description"
+            placeholder="Description"
+          />
         </div>
         <button type="submit" class="sbt_btn">Add Task</button>
       </form>
@@ -29,7 +39,6 @@ import {Router, RouterLink} from '@angular/router';
       display: flex;
       align-items: center;
       justify-content: center;
-
     }
 
     .flex .form div input {
@@ -37,7 +46,7 @@ import {Router, RouterLink} from '@angular/router';
       width: 15rem;
       outline: none;
       border: 1px solid #ddd;
-      border-radius: 2rem
+      border-radius: 2rem;
     }
 
     .flex .form .sbt_btn {
@@ -58,8 +67,7 @@ import {Router, RouterLink} from '@angular/router';
     .required {
       color: red;
     }
-
-  `
+  `,
 })
 export class TreeFormComponent {
   private fb = inject(FormBuilder);
@@ -74,7 +82,7 @@ export class TreeFormComponent {
   onSubmit() {
     if (this.form.invalid) {
       this.form.markAllAsTouched();
-      alert("Field is required");
+      alert('Field is required');
       return;
     }
     const raw = this.form.getRawValue();
@@ -82,12 +90,11 @@ export class TreeFormComponent {
     const tree: ITree = {
       name: raw.name as string,
       description: raw.description as string,
-      createdAt: new Date().toISOString()
+      createdAt: new Date().toISOString(),
     };
 
     this.store.addTask(tree);
     this.router.navigate(['/table']);
     this.form.reset();
   }
-
 }

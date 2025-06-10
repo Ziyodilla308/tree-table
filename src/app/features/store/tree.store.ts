@@ -12,8 +12,8 @@ export class TreeStore {
         id: crypto.randomUUID(),
         name: 'Sample Tree',
         description: 'For Example',
-        createdAt: new Date().toISOString()
-      }
+        createdAt: new Date().toISOString(),
+      },
     ]);
   }
 

@@ -1,4 +1,4 @@
-import {TStatus} from '../types/tree.type';
+import { TStatus } from '../types/tree.type';
 
 export interface ITree {
   id?: string;
@@ -6,5 +6,3 @@ export interface ITree {
   description: string;
   createdAt: string;
 }
-
-
