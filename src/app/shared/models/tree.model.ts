@@ -1,7 +1,7 @@
 import {TStatus} from '../types/tree.type';
 
 export interface ITree {
-  id?: number;
+  id?: string;
   name: string;
   description: string;
   createdAt: string;
